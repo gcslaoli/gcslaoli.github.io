@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 vscode remote-ssh 连接 openEuler | 攻城狮老李</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="老李想给世界留下些东西">
+    
+    <link rel="preload" href="/assets/css/0.styles.d6ad21ed.css" as="style"><link rel="preload" href="/assets/js/app.ba1dd1e5.js" as="script"><link rel="preload" href="/assets/js/2.eeb24f79.js" as="script"><link rel="preload" href="/assets/js/47.7f7a4d27.js" as="script"><link rel="prefetch" href="/assets/js/10.849b3572.js"><link rel="prefetch" href="/assets/js/11.74eac9f6.js"><link rel="prefetch" href="/assets/js/12.1317783e.js"><link rel="prefetch" href="/assets/js/13.c8418106.js"><link rel="prefetch" href="/assets/js/14.f66530ba.js"><link rel="prefetch" href="/assets/js/15.a0005bc5.js"><link rel="prefetch" href="/assets/js/16.070367d2.js"><link rel="prefetch" href="/assets/js/17.9f889640.js"><link rel="prefetch" href="/assets/js/18.38f026a6.js"><link rel="prefetch" href="/assets/js/19.4959466c.js"><link rel="prefetch" href="/assets/js/20.25e14b12.js"><link rel="prefetch" href="/assets/js/21.faf2b627.js"><link rel="prefetch" href="/assets/js/22.f27d646b.js"><link rel="prefetch" href="/assets/js/23.72b4b850.js"><link rel="prefetch" href="/assets/js/24.e7ec69d8.js"><link rel="prefetch" href="/assets/js/25.9464d11e.js"><link rel="prefetch" href="/assets/js/26.a24d4b9d.js"><link rel="prefetch" href="/assets/js/27.11232f9d.js"><link rel="prefetch" href="/assets/js/28.fc09cbe2.js"><link rel="prefetch" href="/assets/js/29.535402a4.js"><link rel="prefetch" href="/assets/js/3.8e96c849.js"><link rel="prefetch" href="/assets/js/30.8e83509a.js"><link rel="prefetch" href="/assets/js/31.191248f9.js"><link rel="prefetch" href="/assets/js/32.b2bd89f5.js"><link rel="prefetch" href="/assets/js/33.26e5a35f.js"><link rel="prefetch" href="/assets/js/34.77fe2967.js"><link rel="prefetch" href="/assets/js/35.03b0d66e.js"><link rel="prefetch" href="/assets/js/36.05f4e41c.js"><link rel="prefetch" href="/assets/js/37.977ceec3.js"><link rel="prefetch" href="/assets/js/38.6448abbc.js"><link rel="prefetch" href="/assets/js/39.f327b8a1.js"><link rel="prefetch" href="/assets/js/4.f876ad59.js"><link rel="prefetch" href="/assets/js/40.0681f458.js"><link rel="prefetch" href="/assets/js/41.997313cc.js"><link rel="prefetch" href="/assets/js/42.68fda8c4.js"><link rel="prefetch" href="/assets/js/43.292f9677.js"><link rel="prefetch" href="/assets/js/44.17b7355b.js"><link rel="prefetch" href="/assets/js/45.594ddea2.js"><link rel="prefetch" href="/assets/js/46.a2b3f394.js"><link rel="prefetch" href="/assets/js/48.9f60f762.js"><link rel="prefetch" href="/assets/js/49.6802f21f.js"><link rel="prefetch" href="/assets/js/5.18c5236f.js"><link rel="prefetch" href="/assets/js/50.0f5ad349.js"><link rel="prefetch" href="/assets/js/51.c4d0670d.js"><link rel="prefetch" href="/assets/js/52.a9074d81.js"><link rel="prefetch" href="/assets/js/53.265931c1.js"><link rel="prefetch" href="/assets/js/54.f26cdb8d.js"><link rel="prefetch" href="/assets/js/55.7730ea5d.js"><link rel="prefetch" href="/assets/js/56.98e7bb32.js"><link rel="prefetch" href="/assets/js/57.ecdaf205.js"><link rel="prefetch" href="/assets/js/58.2c89ce4f.js"><link rel="prefetch" href="/assets/js/59.73d509a5.js"><link rel="prefetch" href="/assets/js/6.e86df8f9.js"><link rel="prefetch" href="/assets/js/60.046527f7.js"><link rel="prefetch" href="/assets/js/61.860be96e.js"><link rel="prefetch" href="/assets/js/62.bc39af39.js"><link rel="prefetch" href="/assets/js/63.97aadd0f.js"><link rel="prefetch" href="/assets/js/64.b251f6fa.js"><link rel="prefetch" href="/assets/js/65.7d11bac0.js"><link rel="prefetch" href="/assets/js/66.c7f42e11.js"><link rel="prefetch" href="/assets/js/67.9345f5c1.js"><link rel="prefetch" href="/assets/js/68.da1a9245.js"><link rel="prefetch" href="/assets/js/69.8062ca51.js"><link rel="prefetch" href="/assets/js/7.9fb93000.js"><link rel="prefetch" href="/assets/js/70.f300c359.js"><link rel="prefetch" href="/assets/js/71.05c973df.js"><link rel="prefetch" href="/assets/js/72.fdd8a7bc.js"><link rel="prefetch" href="/assets/js/73.83e2a340.js"><link rel="prefetch" href="/assets/js/74.34168bf7.js"><link rel="prefetch" href="/assets/js/75.bce6bd64.js"><link rel="prefetch" href="/assets/js/76.39db5f61.js"><link rel="prefetch" href="/assets/js/77.e8ec235b.js"><link rel="prefetch" href="/assets/js/78.d1082cef.js"><link rel="prefetch" href="/assets/js/79.9a3272b2.js"><link rel="prefetch" href="/assets/js/8.cfab3eae.js"><link rel="prefetch" href="/assets/js/80.6465ff83.js"><link rel="prefetch" href="/assets/js/81.9f359415.js"><link rel="prefetch" href="/assets/js/82.f4bf3674.js"><link rel="prefetch" href="/assets/js/83.cdeba9f3.js"><link rel="prefetch" href="/assets/js/84.93360942.js"><link rel="prefetch" href="/assets/js/85.dde709bd.js"><link rel="prefetch" href="/assets/js/86.77f8152e.js"><link rel="prefetch" href="/assets/js/87.64124902.js"><link rel="prefetch" href="/assets/js/88.2681661b.js"><link rel="prefetch" href="/assets/js/89.c117cf76.js"><link rel="prefetch" href="/assets/js/9.195d5782.js"><link rel="prefetch" href="/assets/js/90.d4806d13.js"><link rel="prefetch" href="/assets/js/91.8be32ea3.js"><link rel="prefetch" href="/assets/js/92.39cf3758.js"><link rel="prefetch" href="/assets/js/93.3edb86c0.js"><link rel="prefetch" href="/assets/js/94.7a4b9414.js"><link rel="prefetch" href="/assets/js/95.e55d60da.js"><link rel="prefetch" href="/assets/js/96.32ebd015.js"><link rel="prefetch" href="/assets/js/97.74821eda.js"><link rel="prefetch" href="/assets/js/98.a901fc62.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d6ad21ed.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">攻城狮老李</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/日常随笔/" class="nav-link">
+  日常随笔
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题笔记" class="dropdown-title"><span class="title">专题笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题笔记" class="mobile-dropdown-title"><span class="title">专题笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Favorites1.html" class="nav-link">
+  网址收藏
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  运维笔记
+</a></li><li class="dropdown-item"><!----> <a href="/egg/" class="nav-link">
+  EGG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/golang/" class="nav-link">
+  GOLANG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/drone/" class="nav-link">
+  DRONE笔记
+</a></li><li class="dropdown-item"><!----> <a href="/openeuler/" class="nav-link router-link-active">
+  openEuler
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><!----> <a href="/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/cool-admin-doc/" class="nav-link">
+  CoolAdmin
+</a></li><li class="dropdown-item"><!----> <a href="/ansible/" class="nav-link">
+  ansible
+</a></li></ul></div></div><div class="nav-item"><a href="/works/" class="nav-link">
+  作品集
+</a></div><div class="nav-item"><a href="/scripts/" class="nav-link">
+  脚本集
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mirrors Select" class="dropdown-title"><span class="title">本站镜像</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mirrors Select" class="mobile-dropdown-title"><span class="title">本站镜像</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.lidong.xin" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  主站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.gitee.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Git" class="dropdown-title"><span class="title">MyGit</span> <span class="arrow down"></span></button> <button type="button" aria-label="Git" class="mobile-dropdown-title"><span class="title">MyGit</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/GCSLaoLi" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/gcslaoli" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/日常随笔/" class="nav-link">
+  日常随笔
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题笔记" class="dropdown-title"><span class="title">专题笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题笔记" class="mobile-dropdown-title"><span class="title">专题笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Favorites1.html" class="nav-link">
+  网址收藏
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  运维笔记
+</a></li><li class="dropdown-item"><!----> <a href="/egg/" class="nav-link">
+  EGG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/golang/" class="nav-link">
+  GOLANG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/drone/" class="nav-link">
+  DRONE笔记
+</a></li><li class="dropdown-item"><!----> <a href="/openeuler/" class="nav-link router-link-active">
+  openEuler
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><!----> <a href="/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/cool-admin-doc/" class="nav-link">
+  CoolAdmin
+</a></li><li class="dropdown-item"><!----> <a href="/ansible/" class="nav-link">
+  ansible
+</a></li></ul></div></div><div class="nav-item"><a href="/works/" class="nav-link">
+  作品集
+</a></div><div class="nav-item"><a href="/scripts/" class="nav-link">
+  脚本集
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mirrors Select" class="dropdown-title"><span class="title">本站镜像</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mirrors Select" class="mobile-dropdown-title"><span class="title">本站镜像</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.lidong.xin" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  主站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.gitee.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Git" class="dropdown-title"><span class="title">MyGit</span> <span class="arrow down"></span></button> <button type="button" aria-label="Git" class="mobile-dropdown-title"><span class="title">MyGit</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/GCSLaoLi" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/gcslaoli" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Openeuler</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/openeuler/" aria-current="page" class="sidebar-link">openEuler笔记</a></li><li><a href="/openeuler/S1-connect-openeuler-with-vscoderemote.html" aria-current="page" class="active sidebar-link">使用 vscode remote-ssh 连接 openEuler</a></li><li><a href="/openeuler/S2-cockpit-install.html" class="sidebar-link">安装配置 cockpit</a></li><li><a href="/openeuler/S3-docker-install.html" class="sidebar-link">安装docker</a></li><li><a href="/openeuler/S4-nodejs-install.html" class="sidebar-link">安装nodejs</a></li><li><a href="/openeuler/S5-keepalived.html" class="sidebar-link">Keepalived</a></li><li><a href="/openeuler/S5-lvs-ipvsadm.html" class="sidebar-link">LVS 配置</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="使用-vscode-remote-ssh-连接-openeuler"><a href="#使用-vscode-remote-ssh-连接-openeuler" class="header-anchor">#</a> 使用 vscode remote-ssh 连接 openEuler</h1> <p>直接连接失败，查看日志发现</p> <div class="language-shell extra-class"><pre class="language-shell"><code>vscode-scp-done.flag                            <span class="token number">0</span>%    <span class="token number">0</span>     <span class="token number">0</span>.0KB/s   --:-- ETA
+vscode-scp-done.flag                          <span class="token number">100</span>%    <span class="token number">9</span>     <span class="token number">5</span>.0KB/s   00:00    
+<span class="token punctuation">[</span><span class="token number">18</span>:21:35.685<span class="token punctuation">]</span> <span class="token string">&quot;Copy server to host&quot;</span> terminal <span class="token builtin class-name">command</span> <span class="token keyword">done</span>
+<span class="token punctuation">[</span><span class="token number">18</span>:21:36.787<span class="token punctuation">]</span> <span class="token operator">&gt;</span> Found flag and server on <span class="token function">host</span>
+<span class="token punctuation">[</span><span class="token number">18</span>:21:36.805<span class="token punctuation">]</span> <span class="token operator">&gt;</span> f85a30ca0d5d%%2%%
+<span class="token operator">&gt;</span> <span class="token function">tar</span> --version:
+<span class="token punctuation">[</span><span class="token number">18</span>:21:36.805<span class="token punctuation">]</span> stderr<span class="token operator">&gt;</span> main:行405: tar：未找到命令
+<span class="token punctuation">[</span><span class="token number">18</span>:21:36.808<span class="token punctuation">]</span> stderr<span class="token operator">&gt;</span> main:行406: tar：未找到命令
+<span class="token punctuation">[</span><span class="token number">18</span>:21:36.815<span class="token punctuation">]</span> stderr<span class="token operator">&gt;</span> mv: 无法获取<span class="token string">'vscode-server*/*'</span> 的文件状态<span class="token punctuation">(</span>stat<span class="token punctuation">)</span>: 没有那个文件或目录
+<span class="token punctuation">[</span><span class="token number">18</span>:21:36.816<span class="token punctuation">]</span> <span class="token operator">&gt;</span> ERROR: /root/.vscode-server/bin/ea3859d4ba2f3e577a159bc91e3074c5d85c0523/node or /root/.vscode-server/bin/ea3859d4ba2f3e577a159bc91e3074c5d85c0523/server.sh don't exist
+<span class="token operator">&gt;</span> Already attempted <span class="token builtin class-name">local</span> download, failing
+</code></pre></div><p>分析应该是没有 tar 解压工具，使用 ssh 连接到 openEuler</p> <div class="language-shell extra-class"><pre class="language-shell"><code>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># tar</span>
+-bash: tar：未找到命令
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment">#</span>
+</code></pre></div><p>安装 tar 工具</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># dnf install tar</span>
+上次元数据过期检查：0:31:57 前，执行于 <span class="token number">2021</span>年01月02日 星期六 <span class="token number">17</span>时53分08秒。
+依赖关系解决。
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+ Package                               Architecture                             Version                                           Repository                            Size
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+安装:
+ <span class="token function">tar</span>                                   x86_64                                   <span class="token number">2</span>:1.32-1.oe1                                      OS                                   <span class="token number">772</span> k
+
+事务概要
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+安装  <span class="token number">1</span> 软件包
+
+总下载：772 k
+安装大小：3.2 M
+确定吗？<span class="token punctuation">[</span>y/N<span class="token punctuation">]</span>： y
+下载软件包：
+tar-1.32-1.oe1.x86_64.rpm                                                                                                                    <span class="token number">887</span> kB/s <span class="token operator">|</span> <span class="token number">772</span> kB     00:00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+总计                                                                                                                                         <span class="token number">883</span> kB/s <span class="token operator">|</span> <span class="token number">772</span> kB     00:00
+警告：/var/cache/dnf/OS-fcb43ce6e8cef091/packages/tar-1.32-1.oe1.x86_64.rpm: 头V3 RSA/SHA1 Signature, 密钥 ID b25e7f66: NOKEY
+OS                                                                                                                                            <span class="token number">18</span> kB/s <span class="token operator">|</span> <span class="token number">2.1</span> kB     00:00
+导入 GPG 公钥 0xB25E7F66:
+ Userid: <span class="token string">&quot;private OBS (key without passphrase) &lt;defaultkey@localobs&gt;&quot;</span>
+ 指纹: 12EA 74AC 9DF4 8D46 C69C A0BE D557 065E B25E 7F66
+ 来自: http://repo.openeuler.org/openEuler-20.03-LTS-SP1/OS/x86_64/RPM-GPG-KEY-openEuler
+确定吗？<span class="token punctuation">[</span>y/N<span class="token punctuation">]</span>： y
+导入公钥成功
+运行事务检查
+事务检查成功。
+运行事务测试
+事务测试成功。
+运行事务
+  准备中  <span class="token builtin class-name">:</span>                                                                                                                                                              <span class="token number">1</span>/1
+  运行脚本: tar-2:1.32-1.oe1.x86_64                                                                                                                                      <span class="token number">1</span>/1
+  安装    <span class="token builtin class-name">:</span> tar-2:1.32-1.oe1.x86_64                                                                                                                                      <span class="token number">1</span>/1
+  运行脚本: tar-2:1.32-1.oe1.x86_64                                                                                                                                      <span class="token number">1</span>/1
+  验证    <span class="token builtin class-name">:</span> tar-2:1.32-1.oe1.x86_64                                                                                                                                      <span class="token number">1</span>/1
+
+已安装:
+  tar-2:1.32-1.oe1.x86_64
+
+完毕！
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment">#</span>
+</code></pre></div><p>再次连接，继续报错</p> <div class="language- extra-class"><pre class="language-text"><code>[18:26:33.567] Failed to set up socket for dynamic port forward to remote port 45319: Socket closed. Is the remote port correct?
+[18:26:33.626] [Forwarding server 51275] Got connection 1
+[18:26:33.626] [Forwarding server 51275] Got connection 2
+[18:26:33.629] Failed to set up socket for dynamic port forward to remote port 45319: Socket closed. Is the remote port correct?
+[18:26:33.631] Failed to set up socket for dynamic port forward to remote port 45319: Socket closed. Is the remote port correct?
+</code></pre></div><p>分析是端口转发未开启,查看 sshd 服务配置文件</p> <div class="language- extra-class"><pre class="language-text"><code>[root@localhost ~]# cat /etc/ssh/sshd_config
+#       $OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+# If you want to change the port on a SELinux system, you have to tell
+# SELinux about this change.
+# semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
+#
+#Port 22
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+#SyslogFacility AUTH
+SyslogFacility AUTH
+#LogLevel INFO
+
+# Authentication:
+
+#LoginGraceTime 2m
+PermitRootLogin yes
+#StrictModes yes
+#MaxAuthTries 6
+#MaxSessions 10
+
+#PubkeyAuthentication yes
+
+# The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
+# but this is overridden so installations will only check .ssh/authorized_keys
+AuthorizedKeysFile      .ssh/authorized_keys
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# HostbasedAuthentication
+#IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+#PasswordAuthentication yes
+#PermitEmptyPasswords no
+PasswordAuthentication yes
+
+# Change to no to disable s/key passwords
+#ChallengeResponseAuthentication yes
+ChallengeResponseAuthentication no
+
+# Kerberos options
+#KerberosAuthentication no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+#KerberosGetAFSToken no
+#KerberosUseKuserok yes
+
+# GSSAPI options
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials no
+#GSSAPIStrictAcceptorCheck yes
+#GSSAPIKeyExchange no
+#GSSAPIEnablek5users no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of &quot;PermitRootLogin without-password&quot;.
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+# WARNING: 'UsePAM no' is not supported in openEuler and may cause several
+# problems.
+UsePAM yes
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+#GatewayPorts no
+X11Forwarding no
+#X11DisplayOffset 10
+#X11UseLocalhost yes
+#PermitTTY yes
+PrintMotd no
+#PrintLastLog yes
+#TCPKeepAlive yes
+#PermitUserEnvironment no
+#Compression delayed
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
+#UseDNS no
+#PidFile /var/run/sshd.pid
+#MaxStartups 10:30:100
+#PermitTunnel no
+#ChrootDirectory none
+#VersionAddendum none
+
+# no default banner path
+#Banner none
+
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+
+# override default of no subsystems
+Subsystem sftp /usr/libexec/openssh/sftp-server -l INFO -f AUTH
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#       X11Forwarding no
+#       AllowTcpForwarding no
+#       PermitTTY no
+#       ForceCommand cvs server
+
+#CheckUserSplash yes
+
+# To modify the system-wide ssh configuration, create a  *.conf  file under
+#  /etc/ssh/sshd_config.d/  which will be automatically included below
+#Include /etc/ssh/sshd_config.d/*.conf
+Protocol 2
+LogLevel VERBOSE
+PubkeyAuthentication yes
+RSAAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+PermitUserEnvironment no
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com
+ClientAliveCountMax 0
+Banner /etc/issue.net
+MACs hmac-sha2-512,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha2-256-etm@openssh.com
+StrictModes yes
+AllowTcpForwarding no
+AllowAgentForwarding no
+GatewayPorts no
+PermitTunnel no
+KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+</code></pre></div><p>修改以下配置为<code>yes</code>,最小安装下有 vi 没有 vim，不过 vi 也够用了。</p> <div class="language- extra-class"><pre class="language-text"><code>AllowTcpForwarding yes
+AllowAgentForwarding yes
+</code></pre></div><p>重启 sshd 服务</p> <div class="language- extra-class"><pre class="language-text"><code>systemctl restart sshd.service
+</code></pre></div><p>再次使用remote-ssh连接。。成功了。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2022/11/13 12:30:47</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/openeuler/" class="prev router-link-active">
+        openEuler笔记
+      </a></span> <span class="next"><a href="/openeuler/S2-cockpit-install.html">
+        安装配置 cockpit
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ba1dd1e5.js" defer></script><script src="/assets/js/2.eeb24f79.js" defer></script><script src="/assets/js/47.7f7a4d27.js" defer></script>
+  </body>
+</html>

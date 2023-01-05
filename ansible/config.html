@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ansible配置 | 攻城狮老李</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="老李想给世界留下些东西">
+    
+    <link rel="preload" href="/assets/css/0.styles.d6ad21ed.css" as="style"><link rel="preload" href="/assets/js/app.ba1dd1e5.js" as="script"><link rel="preload" href="/assets/js/2.eeb24f79.js" as="script"><link rel="preload" href="/assets/js/12.1317783e.js" as="script"><link rel="prefetch" href="/assets/js/10.849b3572.js"><link rel="prefetch" href="/assets/js/11.74eac9f6.js"><link rel="prefetch" href="/assets/js/13.c8418106.js"><link rel="prefetch" href="/assets/js/14.f66530ba.js"><link rel="prefetch" href="/assets/js/15.a0005bc5.js"><link rel="prefetch" href="/assets/js/16.070367d2.js"><link rel="prefetch" href="/assets/js/17.9f889640.js"><link rel="prefetch" href="/assets/js/18.38f026a6.js"><link rel="prefetch" href="/assets/js/19.4959466c.js"><link rel="prefetch" href="/assets/js/20.25e14b12.js"><link rel="prefetch" href="/assets/js/21.faf2b627.js"><link rel="prefetch" href="/assets/js/22.f27d646b.js"><link rel="prefetch" href="/assets/js/23.72b4b850.js"><link rel="prefetch" href="/assets/js/24.e7ec69d8.js"><link rel="prefetch" href="/assets/js/25.9464d11e.js"><link rel="prefetch" href="/assets/js/26.a24d4b9d.js"><link rel="prefetch" href="/assets/js/27.11232f9d.js"><link rel="prefetch" href="/assets/js/28.fc09cbe2.js"><link rel="prefetch" href="/assets/js/29.535402a4.js"><link rel="prefetch" href="/assets/js/3.8e96c849.js"><link rel="prefetch" href="/assets/js/30.8e83509a.js"><link rel="prefetch" href="/assets/js/31.191248f9.js"><link rel="prefetch" href="/assets/js/32.b2bd89f5.js"><link rel="prefetch" href="/assets/js/33.26e5a35f.js"><link rel="prefetch" href="/assets/js/34.77fe2967.js"><link rel="prefetch" href="/assets/js/35.03b0d66e.js"><link rel="prefetch" href="/assets/js/36.05f4e41c.js"><link rel="prefetch" href="/assets/js/37.977ceec3.js"><link rel="prefetch" href="/assets/js/38.6448abbc.js"><link rel="prefetch" href="/assets/js/39.f327b8a1.js"><link rel="prefetch" href="/assets/js/4.f876ad59.js"><link rel="prefetch" href="/assets/js/40.0681f458.js"><link rel="prefetch" href="/assets/js/41.997313cc.js"><link rel="prefetch" href="/assets/js/42.68fda8c4.js"><link rel="prefetch" href="/assets/js/43.292f9677.js"><link rel="prefetch" href="/assets/js/44.17b7355b.js"><link rel="prefetch" href="/assets/js/45.594ddea2.js"><link rel="prefetch" href="/assets/js/46.a2b3f394.js"><link rel="prefetch" href="/assets/js/47.7f7a4d27.js"><link rel="prefetch" href="/assets/js/48.9f60f762.js"><link rel="prefetch" href="/assets/js/49.6802f21f.js"><link rel="prefetch" href="/assets/js/5.18c5236f.js"><link rel="prefetch" href="/assets/js/50.0f5ad349.js"><link rel="prefetch" href="/assets/js/51.c4d0670d.js"><link rel="prefetch" href="/assets/js/52.a9074d81.js"><link rel="prefetch" href="/assets/js/53.265931c1.js"><link rel="prefetch" href="/assets/js/54.f26cdb8d.js"><link rel="prefetch" href="/assets/js/55.7730ea5d.js"><link rel="prefetch" href="/assets/js/56.98e7bb32.js"><link rel="prefetch" href="/assets/js/57.ecdaf205.js"><link rel="prefetch" href="/assets/js/58.2c89ce4f.js"><link rel="prefetch" href="/assets/js/59.73d509a5.js"><link rel="prefetch" href="/assets/js/6.e86df8f9.js"><link rel="prefetch" href="/assets/js/60.046527f7.js"><link rel="prefetch" href="/assets/js/61.860be96e.js"><link rel="prefetch" href="/assets/js/62.bc39af39.js"><link rel="prefetch" href="/assets/js/63.97aadd0f.js"><link rel="prefetch" href="/assets/js/64.b251f6fa.js"><link rel="prefetch" href="/assets/js/65.7d11bac0.js"><link rel="prefetch" href="/assets/js/66.c7f42e11.js"><link rel="prefetch" href="/assets/js/67.9345f5c1.js"><link rel="prefetch" href="/assets/js/68.da1a9245.js"><link rel="prefetch" href="/assets/js/69.8062ca51.js"><link rel="prefetch" href="/assets/js/7.9fb93000.js"><link rel="prefetch" href="/assets/js/70.f300c359.js"><link rel="prefetch" href="/assets/js/71.05c973df.js"><link rel="prefetch" href="/assets/js/72.fdd8a7bc.js"><link rel="prefetch" href="/assets/js/73.83e2a340.js"><link rel="prefetch" href="/assets/js/74.34168bf7.js"><link rel="prefetch" href="/assets/js/75.bce6bd64.js"><link rel="prefetch" href="/assets/js/76.39db5f61.js"><link rel="prefetch" href="/assets/js/77.e8ec235b.js"><link rel="prefetch" href="/assets/js/78.d1082cef.js"><link rel="prefetch" href="/assets/js/79.9a3272b2.js"><link rel="prefetch" href="/assets/js/8.cfab3eae.js"><link rel="prefetch" href="/assets/js/80.6465ff83.js"><link rel="prefetch" href="/assets/js/81.9f359415.js"><link rel="prefetch" href="/assets/js/82.f4bf3674.js"><link rel="prefetch" href="/assets/js/83.cdeba9f3.js"><link rel="prefetch" href="/assets/js/84.93360942.js"><link rel="prefetch" href="/assets/js/85.dde709bd.js"><link rel="prefetch" href="/assets/js/86.77f8152e.js"><link rel="prefetch" href="/assets/js/87.64124902.js"><link rel="prefetch" href="/assets/js/88.2681661b.js"><link rel="prefetch" href="/assets/js/89.c117cf76.js"><link rel="prefetch" href="/assets/js/9.195d5782.js"><link rel="prefetch" href="/assets/js/90.d4806d13.js"><link rel="prefetch" href="/assets/js/91.8be32ea3.js"><link rel="prefetch" href="/assets/js/92.39cf3758.js"><link rel="prefetch" href="/assets/js/93.3edb86c0.js"><link rel="prefetch" href="/assets/js/94.7a4b9414.js"><link rel="prefetch" href="/assets/js/95.e55d60da.js"><link rel="prefetch" href="/assets/js/96.32ebd015.js"><link rel="prefetch" href="/assets/js/97.74821eda.js"><link rel="prefetch" href="/assets/js/98.a901fc62.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d6ad21ed.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">攻城狮老李</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/日常随笔/" class="nav-link">
+  日常随笔
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题笔记" class="dropdown-title"><span class="title">专题笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题笔记" class="mobile-dropdown-title"><span class="title">专题笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Favorites1.html" class="nav-link">
+  网址收藏
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  运维笔记
+</a></li><li class="dropdown-item"><!----> <a href="/egg/" class="nav-link">
+  EGG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/golang/" class="nav-link">
+  GOLANG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/drone/" class="nav-link">
+  DRONE笔记
+</a></li><li class="dropdown-item"><!----> <a href="/openeuler/" class="nav-link">
+  openEuler
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><!----> <a href="/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/cool-admin-doc/" class="nav-link">
+  CoolAdmin
+</a></li><li class="dropdown-item"><!----> <a href="/ansible/" class="nav-link router-link-active">
+  ansible
+</a></li></ul></div></div><div class="nav-item"><a href="/works/" class="nav-link">
+  作品集
+</a></div><div class="nav-item"><a href="/scripts/" class="nav-link">
+  脚本集
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mirrors Select" class="dropdown-title"><span class="title">本站镜像</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mirrors Select" class="mobile-dropdown-title"><span class="title">本站镜像</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.lidong.xin" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  主站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.gitee.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Git" class="dropdown-title"><span class="title">MyGit</span> <span class="arrow down"></span></button> <button type="button" aria-label="Git" class="mobile-dropdown-title"><span class="title">MyGit</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/GCSLaoLi" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/gcslaoli" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/日常随笔/" class="nav-link">
+  日常随笔
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题笔记" class="dropdown-title"><span class="title">专题笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题笔记" class="mobile-dropdown-title"><span class="title">专题笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Favorites1.html" class="nav-link">
+  网址收藏
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  运维笔记
+</a></li><li class="dropdown-item"><!----> <a href="/egg/" class="nav-link">
+  EGG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/golang/" class="nav-link">
+  GOLANG笔记
+</a></li><li class="dropdown-item"><!----> <a href="/drone/" class="nav-link">
+  DRONE笔记
+</a></li><li class="dropdown-item"><!----> <a href="/openeuler/" class="nav-link">
+  openEuler
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  docker
+</a></li><li class="dropdown-item"><!----> <a href="/ubuntu/" class="nav-link">
+  Ubuntu
+</a></li><li class="dropdown-item"><!----> <a href="/cool-admin-doc/" class="nav-link">
+  CoolAdmin
+</a></li><li class="dropdown-item"><!----> <a href="/ansible/" class="nav-link router-link-active">
+  ansible
+</a></li></ul></div></div><div class="nav-item"><a href="/works/" class="nav-link">
+  作品集
+</a></div><div class="nav-item"><a href="/scripts/" class="nav-link">
+  脚本集
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mirrors Select" class="dropdown-title"><span class="title">本站镜像</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mirrors Select" class="mobile-dropdown-title"><span class="title">本站镜像</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.lidong.xin" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  主站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gcslaoli.gitee.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee镜像
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Git" class="dropdown-title"><span class="title">MyGit</span> <span class="arrow down"></span></button> <button type="button" aria-label="Git" class="mobile-dropdown-title"><span class="title">MyGit</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/GCSLaoLi" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/gcslaoli" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Ansible</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ansible/" aria-current="page" class="sidebar-link">ansible笔记</a></li><li><a href="/ansible/collections.html" class="sidebar-link">ansible collection</a></li><li><a href="/ansible/config.html" aria-current="page" class="active sidebar-link">ansible配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ansible/config.html#进入容器" class="sidebar-link">进入容器</a></li><li class="sidebar-sub-header"><a href="/ansible/config.html#配置文件" class="sidebar-link">配置文件</a></li></ul></li><li><a href="/ansible/roles.html" class="sidebar-link">ansible roles</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ansible配置"><a href="#ansible配置" class="header-anchor">#</a> ansible配置</h1> <h2 id="进入容器"><a href="#进入容器" class="header-anchor">#</a> 进入容器</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">docker-compose</span> run <span class="token parameter variable">--rm</span> ansible <span class="token function">bash</span>
+</code></pre></div><h2 id="配置文件"><a href="#配置文件" class="header-anchor">#</a> 配置文件</h2> <p>ansible的配置文件位于<code>/etc/ansible/ansible.cfg</code>，可以通过<code>ansible-config dump</code>命令查看。</p> <p>示例配置文件如下：</p> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">defaults</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">inventory</span> <span class="token punctuation">=</span> <span class="token value attr-value">./hosts</span>
+<span class="token key attr-name">host_key_checking</span> <span class="token punctuation">=</span> <span class="token value attr-value">False</span>
+<span class="token key attr-name">remote_user</span> <span class="token punctuation">=</span> <span class="token value attr-value">root</span>
+<span class="token key attr-name">roles_path</span> <span class="token punctuation">=</span> <span class="token value attr-value">./roles</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2022/12/8 14:41:39</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/ansible/collections.html" class="prev">
+        ansible collection
+      </a></span> <span class="next"><a href="/ansible/roles.html">
+        ansible roles
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ba1dd1e5.js" defer></script><script src="/assets/js/2.eeb24f79.js" defer></script><script src="/assets/js/12.1317783e.js" defer></script>
+  </body>
+</html>
